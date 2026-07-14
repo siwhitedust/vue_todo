@@ -41,7 +41,7 @@ watch(todos, (newVal) => {
   </form>
 
   <div v-if="todos.length > 0" class="action-bar">
-      <button @click="resetAllCeklis" class="reset-btn">Reset Semua Ceklis</button>
+      <button @click="removeAllCeklis" class="reset-btn">Reset Semua Ceklis</button>
     </div>
 
   <ul class="todo-list">
