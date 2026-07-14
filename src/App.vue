@@ -20,6 +20,12 @@ const removeTodo = (id) => {
   todos.value = todos.value.filter(todo => todo.id !== id)
 }
 
+const removeAllCeklis = () => {
+  todos.value.forEach(todo => {
+    todo.done = false
+  });
+}
+
 watch(todos, (newVal) => {
   localStorage.setItem('todos', JSON.stringify(newVal))
 }, {deep:true})
@@ -33,6 +39,10 @@ watch(todos, (newVal) => {
     <input type="text" v-model="newTodo" placeholder="Masukkan tugas baru">
     <button type="submit">Tambah</button>
   </form>
+
+  <div v-if="todos.length > 0" class="action-bar">
+      <button @click="resetAllCeklis" class="reset-btn">Reset Semua Ceklis</button>
+    </div>
 
   <ul class="todo-list">
     <li v-if="todos.length===0" class="empty-state">
