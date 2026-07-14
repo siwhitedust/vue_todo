@@ -21,8 +21,8 @@ const removeTodo = (id) => {
 }
 
 watch(todos, (newVal) => {
-  localStorage.setItem('todos', JSON.stringify(newVal), {deep: true})
-})
+  localStorage.setItem('todos', JSON.stringify(newVal))
+}, {deep:true})
 </script>
 
 <template>
